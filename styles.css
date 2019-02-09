@@ -1,0 +1,57 @@
+html {
+  font-family: 'Muli', sans-serif;
+  font-size: 18px;
+  line-height: 1.414;
+  color: #051c2c;
+  font-weight: 300;
+}
+p {
+  margin-top: 0;
+}
+a {
+  color: #408a97;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Carter One';
+}
+
+h2, h3, h4 {
+  margin-top: 0;
+  font-weight: 800;
+}
+
+.container {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.paragraph {
+  width: 600px;
+  max-width: 100%;
+}
+
+.btn {
+  padding: 0.5em 1em;
+  background-color: #408a97;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 3px;
+  text-decoration: none;
+  letter-spacing: 0.0414em;
+  display: inline-block;
+}
+
+.tracked {
+  letter-spacing: 0.0275em;
+}
+
+.bg-primary {
+  background-color: #f8f8f7;
+}
+
+.light-blue {
+  color: #7fb4cd;
+}
