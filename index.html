@@ -16,24 +16,26 @@
 </head>
 
 <body>
-  <div class="container flex justify-between pv2 bb">
-    <div class="flex items-center">
-      <img src="assets/logo.png" class="mr3 w3">
-      <div>
-        <h1 class="fw8 mb0 mt0 f5">Whaley Design</h1>
-        <p class="mb0 f7">By Paola Gutierrez.</p>
+  <div class="bg-blue white">
+    <div class="container flex justify-between pv2 bb">
+      <div class="flex items-center">
+        <img src="assets/logo.png" class="mr3 w3">
+        <div>
+          <h1 class="fw8 mb0 mt0 f5">Humpy Design</h1>
+          <p class="mb0 f7">By Paola Gutiérrez.</p>
+        </div>
       </div>
-    </div>
 
-    <ul class="flex justify-end items-center list mv0">
-      <li class="ml3 pl2 fw6">About</li>
-      <li class="ml3 pl2 fw6">Work</li>
-      <li class="ml3 pl2 fw6">Contact</li>
-    </ul>
-  </div>
+      <ul class="flex justify-end items-center list mv0">
+        <li class="ml3 pl2 fw6">About</li>
+        <li class="ml3 pl2 fw6">Work</li>
+        <li class="ml3 pl2 fw6">Contact</li>
+      </ul>
+    </div>
+  </div>  
 
   <main>
-    <div >
+    <div class="bg-blue white">
       <div class="container pv5 tc">
         <div class="paragraph center">
           <h1 class="f2 mb3">I Design, Code and Freedive.</h1>
@@ -45,7 +47,7 @@
 
     <!-- services -->
     <div class="bg-primary">
-      <svg xmlns="http://www.w3.org/2000/svg" height="94" viewBox="0 0 1440 94" width="1440"><path d="m1440 1301c-254.49455-120.92737-536.35097-72.3817-802-40-177.092263 22.46164-536.236049 51.90587-638-53v-1h1440z" fill="#fff" fill-rule="evenodd" transform="translate(0 -1207)"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="94" viewBox="0 0 1440 94" width="1440"><path d="m1440 1301c-254.49455-120.92737-536.35097-72.3817-802-40-177.092263 22.46164-536.236049 51.90587-638-53v-1h1440z" fill="#0E5172" fill-rule="evenodd" transform="translate(0 -1207)"/></svg>
 
       <div class="container pv4 tc">
         <h2 class="mb4 f2 title">Work</h2>
@@ -54,25 +56,25 @@
           <div class="w-25 ph3">
             <i class="fas fa-object-group f2 navy mb2 db"></i>
             <p class="fw7">UI/UX Design</p>
-            <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
+            <p class="f6">Clean, effective user interfaces that deliver a pleasant, engaging experience for the customer.</p>
           </div>
 
           <div class="w-25 ph3">
             <i class="fas fa-code f2 navy mb2 db"></i>
             <p class="fw7">Web Development</p>
-            <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
+            <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
           </div>
 
           <div class="w-25 ph3">
             <i class="fas fa-envelope f2 navy mb2 db"></i>
             <p class="fw7">Email Development</p>
-            <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
+            <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
           </div>
 
           <div class="w-25 ph3">
             <i class="fas fa-bullhorn f2 navy mb2 db"></i>
-            <p class="fw7">Search Engine Marketing</p>
-            <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
+            <p class="fw7">Data Driven Marketing</p>
+            <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
           </div>
         </div>
       </div>
@@ -81,21 +83,24 @@
     <!-- work -->
     <div id="work" class="bg-primary pb5 pt3">
       <div class="container">
+        <h3 class="f3">Projects</h3>
         <div class="flex items-start mb3">
           <div class="w-40">
-            <div v-for="project in projects" class="mb4">
+            <div v-for="project in projects" class="mb4 flex items-center">
               <input type="radio" :id="project.company" :value="project" v-model="activeProject" class="dn">
+
+              <i class="fas fa-satellite-dish f4 mr3 link" :class="{'o-0': project.company != activeProject.company }"></i>
 
               <label :for="project.company" class="pointer">
                 <h3 class="mb1 f4 link"
                   :class="{ 'active': project.company == activeProject.company }">
                   {{ project.company }}
                 </h3>
+                <p class="f7 fw7 tracked mb0 gray">
+                  {{ project.services }}
+                </p>
               </label>
 
-              <p class="f7 fw7 tracked mb0 gray">
-                {{ project.services }}
-              </p>
             </div>
           </div>
 
