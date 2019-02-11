@@ -8,12 +8,16 @@ html {
 p {
   margin-top: 0;
 }
-a {
+a, .link {
   color: #408a97;
   text-decoration: none;
 }
 
-h1 {
+.link.active {
+  color: #295860;
+}
+
+h1, .title {
   font-family: 'Carter One';
 }
 
@@ -24,9 +28,11 @@ h2, h3, h4 {
 
 .container {
   width: 1200px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .paragraph {
   width: 600px;
   max-width: 100%;
@@ -54,4 +60,12 @@ h2, h3, h4 {
 
 .light-blue {
   color: #7fb4cd;
+}
+
+.gray {
+  color: #758b9f;
+}
+
+.navy {
+  color: #042b46;
 }

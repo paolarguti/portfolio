@@ -1,170 +1,219 @@
 <!DOCTYPE html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <title>Paola Gutierrez - Web Design and Development</title>
-    <meta name="description" content="I design, code and freedive">
+  <title>Paola Gutierrez - Web Design and Development</title>
+  <meta name="description" content="I design, code and freedive">
 
-    <link href="https://fonts.googleapis.com/css?family=Carter+One|Muli:300,300i,400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Carter+One|Muli:300,300i,400,600,700,800" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+  <!-- Tachyons: A CSS Framework http://tachyons.io/docs/table-of-styles/-->
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
 
+  <link rel="stylesheet" href="styles.css"/>
+</head>
 
-    <!-- Tachyons: A CSS Framework http://tachyons.io/docs/table-of-styles/-->
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+<body>
+  <div class="container flex justify-between pv2 bb">
+    <div class="flex items-center">
+      <img src="assets/logo.png" class="mr3 w3">
+      <div>
+        <h1 class="fw8 mb0 mt0 f5">Whaley Design</h1>
+        <p class="mb0 f7">By Paola Gutierrez.</p>
+      </div>
+    </div>
 
-    <link rel="stylesheet" href="styles.css"/>
-  </head>
+    <ul class="flex justify-end items-center list mv0">
+      <li class="ml3 pl2 fw6">About</li>
+      <li class="ml3 pl2 fw6">Work</li>
+      <li class="ml3 pl2 fw6">Contact</li>
+    </ul>
+  </div>
 
-  <body>
-    <main>
-      <div >
-        <div class="container pt4 pb5 tc">
-          <div class="paragraph center">
-            <img src="assets/logo.png">
-            <h1 class="f2 mb3">I Design, Code and Freedive.</h1>
-            <p class="mb4">Front-end web developer helping companies build engaging user interfaces. I love to dive into new challenges and into the blue ocean.</p>
-            <a href="" class="btn">get in touch</a>
+  <main>
+    <div >
+      <div class="container pv5 tc">
+        <div class="paragraph center">
+          <h1 class="f2 mb3">I Design, Code and Freedive.</h1>
+          <p class="mb4">Front-end web developer helping companies build engaging user interfaces. I love to dive into new challenges and into the blue ocean.</p>
+          <a href="" class="btn">get in touch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- services -->
+    <div class="bg-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" height="94" viewBox="0 0 1440 94" width="1440"><path d="m1440 1301c-254.49455-120.92737-536.35097-72.3817-802-40-177.092263 22.46164-536.236049 51.90587-638-53v-1h1440z" fill="#fff" fill-rule="evenodd" transform="translate(0 -1207)"/></svg>
+
+      <div class="container pv4 tc">
+        <h2 class="mb4 f2 title">Work</h2>
+
+        <div class="flex justify-center">
+          <div class="w-25 ph3">
+            <i class="fas fa-object-group f2 navy mb2 db"></i>
+            <p class="fw7">UI/UX Design</p>
+            <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
+          </div>
+
+          <div class="w-25 ph3">
+            <i class="fas fa-code f2 navy mb2 db"></i>
+            <p class="fw7">Web Development</p>
+            <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
+          </div>
+
+          <div class="w-25 ph3">
+            <i class="fas fa-envelope f2 navy mb2 db"></i>
+            <p class="fw7">Email Development</p>
+            <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
+          </div>
+
+          <div class="w-25 ph3">
+            <i class="fas fa-bullhorn f2 navy mb2 db"></i>
+            <p class="fw7">Search Engine Marketing</p>
+            <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- services -->
-      <div class="bg-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" height="94" viewBox="0 0 1440 94" width="1440"><path d="m1440 1301c-254.49455-120.92737-536.35097-72.3817-802-40-177.092263 22.46164-536.236049 51.90587-638-53v-1h1440z" fill="#fff" fill-rule="evenodd" transform="translate(0 -1207)"/></svg>
+    <!-- work -->
+    <div id="work" class="bg-primary pb5 pt3">
+      <div class="container">
+        <div class="flex items-start mb3">
+          <div class="w-40">
+            <div v-for="project in projects" class="mb4">
+              <input type="radio" :id="project.company" :value="project" v-model="activeProject" class="dn">
 
-        <div class="container pv4 tc">
-          <div class="flex justify-center">
-            <div class="w-25 ph3">
-              <i class="fas fa-code f2 light-blue mb2 db"></i>
-              <p class="fw7">Web Development</p>
-              <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
+              <label :for="project.company" class="pointer">
+                <h3 class="mb1 f4 link"
+                  :class="{ 'active': project.company == activeProject.company }">
+                  {{ project.company }}
+                </h3>
+              </label>
+
+              <p class="f7 fw7 tracked mb0 gray">
+                {{ project.services }}
+              </p>
+            </div>
+          </div>
+
+          <div class="w-60">
+            <div class="mb2">
+              <img :src="activeProject.image">
             </div>
 
-            <div class="w-25 ph3">
-              <i class="fas fa-object-group f2 light-blue mb2 db"></i>
-              <p class="fw7">UI/UX Design</p>
-              <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
-            </div>
+            <h3 class="mb2 f4">{{ activeProject.company }}</h3>
 
-            <div class="w-25 ph3">
-              <i class="fas fa-envelope f2 light-blue mb2 db"></i>
-              <p class="fw7">Email Design/Development</p>
-              <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
-            </div>
+            <p>{{ activeProject.description }}</p>
 
-            <div class="w-25 ph3">
-              <i class="fas fa-bullhorn f2 light-blue mb2 db"></i>
-              <p class="fw7">Search Engine Marketing</p>
-              <p class="f6">Online platform helping subscription-based companies offer weekly customization and recurring</p>
-            </div>
+            <a class="btn" href="#">Learn More &#187;</a>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- work -->
-      <div class="bg-primary">
-        <div class="container ph6">
+    <!-- testimonial -->
+    <div style="background-color: transparent; padding-top: 0px; padding-bottom: 0px; background: -moz-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #0f5375 38%, #0f5375 100%); background: -webkit-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #0f5375 38%, #0f5375 100%); background: linear-gradient(to bottom, #f8f8f7 0%, #f8f8f7 38%, #0f5375 38%, #0f5375 100%);">
 
-          <div class="flex items-center mb3">
-            <div class="w-60 pr4">
-              <img src="https://projects.invisionapp.com/static-signed/live-embed/42689268/344490589/1/latest/TYLtt3ylEvz3p8a8Ppr1evqS3LVrCH0MeGgfeKi0ogn3RRqxlEBrADgr4bXuJ8dQAKNFmqnlEQkPFf3lEkyYlEk4x6wlE/portfolio-vb-2.png">
-            </div>
+      <div class="container bg-white pv4 ph5 flex items-center">
+        <div class="w-two-thirds">
+          <p class="i f4 lh-copy mb0">“Working with Paola on our user experience and user interface has provided incredibly quick returns on our investment. We’ve seen our new subscriptions grow two fold and we’re just getting started. Paola is the most communicative and realistic design / technology professional we’ve worked with and I’d recommend her to everyone I know.”</p>
+        </div>
 
-            <div class="w-40">
-              <h3>Dill SASS by From the Farmer</h3>
-
-              <p>Online platform helping subscription-based companies offer weekly customization and recurring billing.</p>
-
-              <p class="f6 fw7 tracked">
-                <a href="#">UI/UX Design</a>&nbsp;&bull;&nbsp;
-                <a href="#">Web Development</a>
-              </p>
-
-              <a class="fw8" href="">Learn More &#187;</a>
-            </div>
-          </div>
-
-          <div class="flex mb3">
-            <div class="w-60 pr4">
-              <img src="https://projects.invisionapp.com/static-signed/live-embed/42689268/344490589/1/latest/TYLtt3ylEvz3p8a8Ppr1evqS3LVrCH0MeGgfeKi0ogn3RRqxlEBrADgr4bXuJ8dQAKNFmqnlEQkPFf3lEkyYlEk4x6wlE/portfolio-vb-2.png">
-            </div>
-
-            <div class="w-40">
-              <h3>From the Farmer</h3>
-
-              <p>Farm box delivery service in the DC area offering weekly customizable produce boxes on a flexible schedule.</p>
-
-              <p class="f6 fw7 tracked">
-                <a href="#">UI/UX Design</a>&nbsp;&bull;&nbsp;
-                <a href="#">Web Development</a>&nbsp;&bull;&nbsp;
-                <a href="#">Email</a>&nbsp;&bull;&nbsp;
-                <a href="#">SEM</a>
-              </p>
-
-              <a class="fw8" href="">Learn More &#187;</a>
-            </div>
-          </div>
-
-          <div class="flex mb3">
-            <div class="w-60 pr4">
-              <img src="https://projects.invisionapp.com/static-signed/live-embed/42689268/344490589/1/latest/TYLtt3ylEvz3p8a8Ppr1evqS3LVrCH0MeGgfeKi0ogn3RRqxlEBrADgr4bXuJ8dQAKNFmqnlEQkPFf3lEkyYlEk4x6wlE/portfolio-vb-2.png">
-            </div>
-
-            <div class="w-40">
-              <h3>Retirement Fail</h3>
-
-              <p>Book on retirement planning by Greg Sullivan.</p>
-
-              <p class="f6 fw7 tracked">
-                <a href="#">UI/UX Design</a>&nbsp;&bull;&nbsp;
-                <a href="#">Web Development</a>
-              </p>
-
-              <a class="fw8" href="">Learn More &#187;</a>
-            </div>
-          </div>
-
-          <div class="flex mb3">
-            <div class="w-60 pr4">
-              <img src="https://projects.invisionapp.com/static-signed/live-embed/42689268/344490589/1/latest/TYLtt3ylEvz3p8a8Ppr1evqS3LVrCH0MeGgfeKi0ogn3RRqxlEBrADgr4bXuJ8dQAKNFmqnlEQkPFf3lEkyYlEk4x6wlE/portfolio-vb-2.png">
-            </div>
-
-            <div class="w-40">
-              <h3>Listening Crowd</h3>
-
-              <p>A podcast annotation tool.</p>
-
-              <p class="f6 fw7 tracked">
-                <a href="#">UI/UX Design</a>&nbsp;&bull;&nbsp;
-                <a href="#">Web Development</a>
-              </p>
-
-              <a class="fw8" href="">Learn More &#187;</a>
-            </div>
-          </div>
+        <div class="w-third ph3 tc">
+          <img src="https://lh4.googleusercontent.com/-dZvXUfhPfas/AAAAAAAAAAI/AAAAAAAAA6Q/cQMxqyMFrp4/photo.jpg" class="w4" style="border-radius:50%;">
+          <p class="mb0 fw6">Jason Lundberg</p>
+          <p class="gray f7 mb0">Founder and CEO at From the Farmer</p>
         </div>
       </div>
+    </div>
 
-      <!-- technologies -->
-      <div class="">
-        <div class="container pv5 tc">
-          <p class="b">Powered by</p>
+    <div class="pa4" style="background: #0f5375;">
+    </div>
 
-          <div class="flex justify-center">
-            <img src="assets/logo-html5.png" class="h3 mh3">
-            <img src="assets/logo-css3.png" class="h3 mh3">
-            <img src="assets/logo-sass.png" class="h3 mh3">
-            <img src="assets/logo-js.png" class="h3 mh3">
-            <img src="assets/logo-vue.png" class="h3 mh3">
-            <img src="assets/logo-shopify.png" class="h3 mh3">
+    <!-- technologies -->
+    <!-- <div class="">
+      <div class="container pv5 tc">
+        <p class="b">My work is powered by</p>
 
-          </div>
+        <div class="flex justify-center">
+          <img src="assets/logo-html5.png" class="h3 mh3">
+          <img src="assets/logo-css3.png" class="h3 mh3">
+          <img src="assets/logo-sass.png" class="h3 mh3">
+          <img src="assets/logo-js.png" class="h3 mh3">
+          <img src="assets/logo-vue.png" class="h3 mh3">
+          <img src="assets/logo-shopify.png" class="h3 mh3">
+
         </div>
       </div>
+    </div> -->
+  </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    </main>
-  </body>
+  <script type="text/javascript">
+    var subscription = new Vue({
+      el: '#work',
+      data: {
+        projects: [
+          {
+            company: 'Dill SASS by From the Farmer',
+            description: 'Online platform helping subscription-based companies offer a delivery schedule, weekly customization and recurring billing.',
+            services: 'UI/UX Design • Web Development',
+            url: '',
+            image: 'assets/desktop-vb.png',
+          },
+
+          {
+            company: 'From the Farmer',
+            description: 'Farm box delivery service in the DC area offering weekly customizable produce boxes on a flexible schedule.',
+            services: 'UI/UX Design • Web Development • Email Development • SEM',
+            url: '',
+            image: 'assets/desktop-ftf.png',
+          },
+
+          {
+            company: 'Retirement Fail',
+            description: 'Book on retirement planning by Greg Sullivan.',
+            services: 'UI/UX Design • Web Development',
+            url: '',
+            image: 'assets/desktop-vb.png',
+          },
+
+          {
+            company: 'Nirvana OceanQuest',
+            description: 'A freediving depth competition.',
+            services: 'UI/UX Design • Web Development',
+            url: '',
+            image: 'assets/desktop-vb.png',
+          },
+
+          {
+            company: 'Listening Crowd',
+            description: 'A podcast annotation tool.',
+            services: 'UI/UX Design • Web Development',
+            url: '',
+            image: 'assets/desktop-vb.png',
+          },
+
+          {
+            company: 'Kintrospect',
+            description: 'A tool to help you make sense of your kindle highlights.',
+            services: 'UI/UX Design • Web Development',
+            url: '',
+            image: 'assets/desktop-vb.png',
+          },
+        ],
+
+        activeProject: {}
+      },
+
+      created: function() {
+        this.activeProject = this.projects[0];
+      }
+    });
+  </script>
+</body>
 </html>
