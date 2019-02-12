@@ -86,3 +86,8 @@ h2, h3, h4 {
   -webkit-transition: width 0.5s ease;
   transition: width 0.5s ease;
 }
+@media screen and (min-width: 30em) {
+  .bg-primary-ns {
+    background-color: #f8f8f7;
+  }
+}
