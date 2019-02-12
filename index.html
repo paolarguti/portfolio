@@ -21,7 +21,7 @@
       <div class="flex items-center">
         <img src="assets/logo.png" class="mr3 w3">
         <div>
-          <h1 class="fw8 mb0 mt0 f5">Humpy Design</h1>
+          <h1 class="fw8 mb0 mt0 f5">Whaley Design</h1>
           <p class="mb0 f7">By Paola Gutiérrez.</p>
         </div>
       </div>
@@ -47,35 +47,30 @@
 
     <!-- services -->
     <div class="bg-primary">
-      <svg xmlns="http://www.w3.org/2000/svg" height="94" viewBox="0 0 1440 94" width="1440"><path d="m1440 1301c-254.49455-120.92737-536.35097-72.3817-802-40-177.092263 22.46164-536.236049 51.90587-638-53v-1h1440z" fill="#0E5172" fill-rule="evenodd" transform="translate(0 -1207)"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="94" viewBox="0 0 1440" width="1440" class="mw-100"><path d="m1440 1301c-254.49455-120.92737-536.35097-72.3817-802-40-177.092263 22.46164-536.236049 51.90587-638-53v-1h1440z" fill="#0E5172" fill-rule="evenodd" transform="translate(0 -1207)"/></svg>
 
       <div class="container pv4 tc">
         <h2 class="mb4 f2 title">Work</h2>
 
-        <div class="flex justify-center">
-          <div class="w-25 ph3">
+        <div class="flex flex-row-ns flex-column justify-center">
+          <div class="w-25-l w-third-m w-100 ph3">
             <i class="fas fa-object-group f2 navy mb2 db"></i>
             <p class="fw7">UI/UX Design</p>
-            <p class="f6">Clean, effective user interfaces that deliver a pleasant, engaging experience for the customer.</p>
+            <p class="f6">Clean, effective user interfaces that deliver a pleasant and engaging customer experience.</p>
           </div>
 
-          <div class="w-25 ph3">
+          <div class="w-25-l w-third-m w-100 ph3">
             <i class="fas fa-code f2 navy mb2 db"></i>
             <p class="fw7">Web Development</p>
-            <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
+            <p class="f6">High performing web applications built on a modern stack following the industry's best practices.</p>
           </div>
 
-          <div class="w-25 ph3">
+          <div class="w-25-l w-third-m w-100 ph3">
             <i class="fas fa-envelope f2 navy mb2 db"></i>
             <p class="fw7">Email Development</p>
             <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
           </div>
 
-          <div class="w-25 ph3">
-            <i class="fas fa-bullhorn f2 navy mb2 db"></i>
-            <p class="fw7">Data Driven Marketing</p>
-            <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -85,11 +80,11 @@
       <div class="container">
         <h3 class="f3">Projects</h3>
         <div class="flex items-start mb3">
-          <div class="w-40">
+          <div class="w-40-l w-100">
             <div v-for="project in projects" class="mb4 flex items-center">
               <input type="radio" :id="project.company" :value="project" v-model="activeProject" class="dn">
 
-              <i class="fas fa-satellite-dish f4 mr3 link" :class="{'o-0': project.company != activeProject.company }"></i>
+              <i class="fas fa-cloud f4 mr3 link dn db-l" :class="{'o-0': project.company != activeProject.company }"></i>
 
               <label :for="project.company" class="pointer">
                 <h3 class="mb1 f4 link"
@@ -104,9 +99,37 @@
             </div>
           </div>
 
-          <div class="w-60">
+          <div class="w-60 dn db-l">
             <div class="mb2">
-              <img :src="activeProject.image">
+              <div class="w-100 flex">
+                <div style="width: 12.25%;">
+                  <img src="assets/desktop_left.png" class="db">
+                </div>  
+                
+                <div style="width: 75.50%">
+                  <div class="flex flex-column justify-between h-100">
+                    <img src="assets/desktop_top.png" class="db">
+
+                    <div class="relative h-100">
+                      <transition-group>
+                        <img v-for="(screen, i) in activeProject.screens" :key="screen" :src="screen" :style="{ 'display': i == activeScreen ? 'block' : 'none' }" :class="{'o-40': progressBar.opacity === 1}">
+                      </transition-group>
+
+                      <div class="absolute top-0 left-0 right-0 z-999">
+                        <div id="progressBar" :style="progressBar"></div>
+                      </div>  
+                    </div>  
+ 
+                    <img src="assets/desktop_bottom.png" class="db">
+                  </div>  
+                </div>  
+                
+                <div style="width: 12.25%;">
+                  <img src="assets/desktop_right.png" class="db">
+                </div>  
+
+              </div>  
+              
             </div>
 
             <h3 class="mb2 f4">{{ activeProject.company }}</h3>
@@ -120,29 +143,28 @@
     </div>
 
     <!-- testimonial -->
-    <div style="background-color: transparent; padding-top: 0px; padding-bottom: 0px; background: -moz-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #0f5375 38%, #0f5375 100%); background: -webkit-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #0f5375 38%, #0f5375 100%); background: linear-gradient(to bottom, #f8f8f7 0%, #f8f8f7 38%, #0f5375 38%, #0f5375 100%);">
+    <div style="background-color: transparent; padding-top: 0px; padding-bottom: 0px; background: -moz-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%); background: -webkit-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%); background: linear-gradient(to bottom, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%);">
 
-      <div class="container bg-white pv4 ph5 flex items-center">
-        <div class="w-two-thirds">
-          <p class="i f4 lh-copy mb0">“Working with Paola on our user experience and user interface has provided incredibly quick returns on our investment. We’ve seen our new subscriptions grow two fold and we’re just getting started. Paola is the most communicative and realistic design / technology professional we’ve worked with and I’d recommend her to everyone I know.”</p>
-        </div>
+      <div class="container">
+        <div class="bg-white pv4 ph5 flex items-center">
+          <div class="w-two-thirds">
+            <p class="i f4 lh-copy mb0">“Working with Paola on our user experience and user interface has provided incredibly quick returns on our investment. We’ve seen our new subscriptions grow two fold and we’re just getting started. Paola is the most communicative and realistic design / technology professional we’ve worked with.”</p>
+          </div>
 
-        <div class="w-third ph3 tc">
-          <img src="https://lh4.googleusercontent.com/-dZvXUfhPfas/AAAAAAAAAAI/AAAAAAAAA6Q/cQMxqyMFrp4/photo.jpg" class="w4" style="border-radius:50%;">
-          <p class="mb0 fw6">Jason Lundberg</p>
-          <p class="gray f7 mb0">Founder and CEO at From the Farmer</p>
-        </div>
+          <div class="w-third ph3 tc">
+            <img src="https://lh4.googleusercontent.com/-dZvXUfhPfas/AAAAAAAAAAI/AAAAAAAAA6Q/cQMxqyMFrp4/photo.jpg" class="w4" style="border-radius:50%;">
+            <p class="mb0 fw6">Jason Lundberg</p>
+            <p class="gray f7 mb0">Founder and CEO at From the Farmer</p>
+          </div>
+        </div>  
       </div>
     </div>
 
-    <div class="pa4" style="background: #0f5375;">
-    </div>
+    <div class="pa4" style="background: #a6cee7;">
 
     <!-- technologies -->
-    <!-- <div class="">
-      <div class="container pv5 tc">
+      <!-- <div class="container pv5 tc">
         <p class="b">My work is powered by</p>
-
         <div class="flex justify-center">
           <img src="assets/logo-html5.png" class="h3 mh3">
           <img src="assets/logo-css3.png" class="h3 mh3">
@@ -150,10 +172,23 @@
           <img src="assets/logo-js.png" class="h3 mh3">
           <img src="assets/logo-vue.png" class="h3 mh3">
           <img src="assets/logo-shopify.png" class="h3 mh3">
-
         </div>
-      </div>
-    </div> -->
+      </div> -->
+
+      <div class="container tc pt4">
+        <h2 class="mb3 f3 title">Get in touch!</h2>
+
+        <p class="f4 fw7">paola.rguti@gmail.com</p>
+
+        <div class="flex justify-center f4">
+          <i class="fab fa-facebook-f mh2 link"></i>
+          <i class="fab fa-instagram mh2 link"></i>
+          <i class="fab fa-twitter mh2 link"></i>
+          <i class="fab fa-linkedin-in mh2 link"></i>
+        </div>  
+
+      </div>  
+    </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -164,35 +199,27 @@
       data: {
         projects: [
           {
-            company: 'Dill SASS by From the Farmer',
+            company: 'Dill Platform by From the Farmer',
             description: 'Online platform helping subscription-based companies offer a delivery schedule, weekly customization and recurring billing.',
             services: 'UI/UX Design • Web Development',
             url: '',
-            image: 'assets/desktop-vb.png',
+            screens: ['assets/vb1.png', 'assets/ftf1.png']
           },
 
           {
             company: 'From the Farmer',
             description: 'Farm box delivery service in the DC area offering weekly customizable produce boxes on a flexible schedule.',
-            services: 'UI/UX Design • Web Development • Email Development • SEM',
+            services: 'UI/UX Design • Web Development • Email Development',
             url: '',
-            image: 'assets/desktop-ftf.png',
+            screens: ['assets/ftf1.png', 'assets/vb1.png']
           },
 
           {
             company: 'Retirement Fail',
             description: 'Book on retirement planning by Greg Sullivan.',
-            services: 'UI/UX Design • Web Development',
+            services: 'UI/UX Design • Web Development • Email Development',
             url: '',
-            image: 'assets/desktop-vb.png',
-          },
-
-          {
-            company: 'Nirvana OceanQuest',
-            description: 'A freediving depth competition.',
-            services: 'UI/UX Design • Web Development',
-            url: '',
-            image: 'assets/desktop-vb.png',
+            screens: ['assets/rf1.png', 'assets/vb1.png'],
           },
 
           {
@@ -200,19 +227,37 @@
             description: 'A podcast annotation tool.',
             services: 'UI/UX Design • Web Development',
             url: '',
-            image: 'assets/desktop-vb.png',
-          },
-
-          {
-            company: 'Kintrospect',
-            description: 'A tool to help you make sense of your kindle highlights.',
-            services: 'UI/UX Design • Web Development',
-            url: '',
-            image: 'assets/desktop-vb.png',
+            screens: ['assets/lc1.png', 'assets/vb1.png'],
           },
         ],
 
-        activeProject: {}
+        activeProject: {},
+
+        activeScreen: 0,
+
+        progressBar: {
+          opacity: 0,
+          width: '0%'
+        }
+      },
+
+      watch: {
+        activeProject: function() {
+          this.progressBar.width = '0%';
+          this.progressBar.opacity = 1;
+          
+          var self = this;
+          
+          setTimeout(function() {
+            self.progressBar.width = '100%';
+          }, 100);
+
+          setTimeout(function() {
+            self.progressBar.opacity = 0;
+            self.progressBar.width = '0%';
+          }, 1000);
+          
+        }
       },
 
       created: function() {

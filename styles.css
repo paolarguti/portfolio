@@ -28,6 +28,8 @@ h2, h3, h4 {
 
 .container {
   width: 1200px;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -72,4 +74,15 @@ h2, h3, h4 {
 
 .navy {
   color: #042b46;
+}
+.b--navy {
+  border-color: #042b46;
+}
+
+#progressBar {
+  height: 0.25rem;
+  background: #0E5172;
+  -moz-transition: width 0.5s ease;
+  -webkit-transition: width 0.5s ease;
+  transition: width 0.5s ease;
 }
