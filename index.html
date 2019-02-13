@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Paola Gutierrez - Web Design and Development</title>
+  <title>Paola Gutiérrez -Web Design and Front-End Development</title>
+
   <meta name="description" content="I design, code and freedive">
 
   <link href="https://fonts.googleapis.com/css?family=Carter+One|Muli:300,300i,400,600,700,800" rel="stylesheet">
@@ -20,6 +22,7 @@
     <div class="container flex justify-between pv2 bb">
       <div class="flex items-center">
         <img src="assets/logo.png" class="mr3 w3">
+        
         <div>
           <h1 class="fw8 mb0 mt0 f5">Whaley Design</h1>
           <p class="mb0 f7">By Paola Gutiérrez.</p>
@@ -29,7 +32,7 @@
       <ul class="flex justify-end items-center list mv0">
         <li class="ml3 pl2 fw6">About</li>
         <li class="ml3 pl2 fw6">Work</li>
-        <li class="ml3 pl2 fw6"><a href="/cv" class="white">Resume</a></li>
+        <li class="ml3 pl2 fw6"><a href="/resume" class="white">Resume</a></li>
         <li class="ml3 pl2 fw6">Contact</li>
       </ul>
     </div>
@@ -71,43 +74,42 @@
             <p class="fw7">Email Development</p>
             <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
           </div>
-
         </div>
       </div>
     </div>
 
     <!-- work -->
-    <div id="work" class="bg-primary pb5 pt3">
+    <div class="bg-primary pb5 pt3">
       <div class="container">
         <h3 class="f3">Projects</h3>
-        <div class="flex items-start mb3">
+        
+        <div id="work" class="flex items-start mb3">
           <div class="w-40-l w-100">
             <div v-for="project in projects" class="mb4 flex items-center">
               <input type="radio" :id="project.company" :value="project" v-model="activeProject" class="dn">
 
-              <i class="fas fa-cloud f4 mr3 link dn db-l" :class="{'o-0': project.company != activeProject.company }"></i>
+              <i class="fas fa-cloud f4 mr3 link dn db-l" :class="{'o-0': project.company !== activeProject.company }"></i>
 
               <label :for="project.company" class="pointer">
                 <h3 class="mb1 f4 link"
-                  :class="{ 'active': project.company == activeProject.company }">
+                  :class="{ 'active': project.company === activeProject.company }">
                   {{ project.company }}
                 </h3>
                 <p class="f7 fw7 tracked mb0 gray">
                   {{ project.services }}
                 </p>
               </label>
-
             </div>
           </div>
 
           <div class="w-60 dn db-l">
             <div class="mb2">
               <div class="w-100 flex">
-                <div style="width: 12.25%;">
+                <div class="w-12_25">
                   <img src="assets/desktop_left.png" class="db">
                 </div>  
                 
-                <div style="width: 75.50%">
+                <div class="w-75_50">
                   <div class="flex flex-column justify-between h-100">
                     <img src="assets/desktop_top.png" class="db">
 
@@ -125,7 +127,7 @@
                   </div>  
                 </div>  
                 
-                <div style="width: 12.25%;">
+                <div class="w-12_25">
                   <img src="assets/desktop_right.png" class="db">
                 </div>  
 
@@ -144,7 +146,7 @@
     </div>
 
     <!-- testimonial -->
-   <!--  <div style="background-color: transparent; padding-top: 0px; padding-bottom: 0px; background: -moz-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%); background: -webkit-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%); background: linear-gradient(to bottom, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%);">
+   <!--  <div style="bg-halfblue">
 
       <div class="container">
         <div class="bg-white pv4 ph5 flex items-center">
@@ -153,7 +155,7 @@
           </div>
 
           <div class="w-third ph3 tc">
-            <img src="https://lh4.googleusercontent.com/-dZvXUfhPfas/AAAAAAAAAAI/AAAAAAAAA6Q/cQMxqyMFrp4/photo.jpg" class="w4" style="border-radius:50%;">
+            <img src="https://lh4.googleusercontent.com/-dZvXUfhPfas/AAAAAAAAAAI/AAAAAAAAA6Q/cQMxqyMFrp4/photo.jpg" class="w4 br50">
             <p class="mb0 fw6">Jason Lundberg</p>
             <p class="gray f7 mb0">Founder and CEO at From the Farmer</p>
           </div>
@@ -161,7 +163,7 @@
       </div>
     </div>
  -->
-    <div class="pa4" style="background: #a6cee7;">
+    <div class="pa4 bg-light-blue">
 
     <!-- technologies -->
       <!-- <div class="container pv5 tc">

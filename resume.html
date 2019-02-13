@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html style="font-size:14px;">
+<html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Paola Gutiérrez - Web Design and Development</title>
+  <title>Resume | Paola Gutiérrez -Web Design and Front-End Development</title>
   <meta name="description" content="I design, code and freedive">
 
   <link href="https://fonts.googleapis.com/css?family=Carter+One|Muli:300,300i,400,600,700,800" rel="stylesheet">
@@ -16,43 +16,13 @@
   <link rel="stylesheet" href="styles.css"/>
 	
 	<style>
-		page[size="A4"] {  
-		  width: 21cm;
-		  height: 29.7cm; 
-		}
-
-		@media print {
-		  @page {
-		  	margin: 0;
-		  }
-		  .dn-print {
-		  	display: none;
-		  }
-		  .flex-row-ns {
-		  	flex-direction: row;
-		  }
-		  .order-1-ns {
-		  	order: 1;
-		  }
-		  .order-2-ns {
-		  	order: 2;
-		  }
-		  .w-third-ns {
-		  	width: 33.33%;
-		  }
-		  .w-two-thirds-ns {
-		  	width: 66.66%;
-		  }
-		  .pb0-ns {
-		  	padding-bottom:0;
-		  }
-		}
+		html { font-size:14px; }
 	</style>
 </head>
 
-<body class="bg-primary-ns" style="font-size:14px;">
-	<page size="A4" class="center mv3 bg-white db mw-100 relative">
-		<div class="ph4 pt5 pb4 pb0-ns flex flex-row-ns flex-column justify-between items-baseline" style="background: #e5f4fc;">
+<body class="bg-primary-ns">
+	<main size="A4" class="center mv3 bg-white db mw-100 relative">
+		<div class="ph4 pt5 pb4 pb0-ns flex flex-row-ns flex-column justify-between items-baseline bg-light-blue">
 			<div>
 				<h1 class="f1 mv0">Paola Gutiérrez</h1>
 				<p class="ttu tracked">Web Design and Front-End Development</p>
@@ -66,10 +36,10 @@
 		</div>		
 		
 		<div class="overflow-hidden dn-print">
-			<img class="w-100 db" style="transform: scaleX(-1.1);" src="assets/wave-light-blue.svg">
+			<img class="w-100 db flip-x" src="assets/wave-light-blue.svg">
 		</div>		
 
-		<div class="flex flex-row-ns flex-column pv4 mv2">
+		<div class="flex flex-row-ns flex-column pv4-ns mv2-ns">
 			<div class="w-third-ns w-100 ph4 order-2 order-1-ns">
 				<div class="mb5-ns mb4">
 					<h2 class="title f3 mb2">Programming Skills</h2>
@@ -101,7 +71,6 @@
 			</div>
 
 			<div class="w-two-thirds-ns w-100 ph4 order-1 order-2-ns">
-
 				<div class="mb4">
 					<div class="flex justify-between items-baseline">
 						<h3 class="mb2 f4 fw8 w-two-thirds-ns w-60">Front-End Developer</h3>
@@ -173,7 +142,7 @@
 				</div>
 			</div>
 		</div>	
-	</page>
+	</main>
 
 	<div class="center pv2 tc dn-print">
 		<a class="btn f4" href="javascript:window.print()">
