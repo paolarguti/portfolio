@@ -22,12 +22,29 @@
 		}
 
 		@media print {
-		  body, page {
-		    margin: 0;
-		    box-shadow: 0;
+		  @page {
+		  	margin: 0;
 		  }
 		  .dn-print {
 		  	display: none;
+		  }
+		  .flex-row-ns {
+		  	flex-direction: row;
+		  }
+		  .order-1-ns {
+		  	order: 1;
+		  }
+		  .order-2-ns {
+		  	order: 2;
+		  }
+		  .w-third-ns {
+		  	width: 33.33%;
+		  }
+		  .w-two-thirds-ns {
+		  	width: 66.66%;
+		  }
+		  .pb0-ns {
+		  	padding-bottom:0;
 		  }
 		}
 	</style>
@@ -158,7 +175,7 @@
 		</div>	
 	</page>
 
-	<div class="center pv2 tc">
+	<div class="center pv2 tc dn-print">
 		<a class="btn f4" href="javascript:window.print()">
 			<i class="fas fa-print"></i> Print
 		</a>
