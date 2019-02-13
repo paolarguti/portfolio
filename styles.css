@@ -77,6 +77,10 @@ h2, h3, h4 {
   transform: scaleX(-1.1)
 }
 
+.disabled {
+  pointer-events: none;
+}
+
 /*** INDEX STYLES ***/
 .w-12_25 {
   width: 12.25%;

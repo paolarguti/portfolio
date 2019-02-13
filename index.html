@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <ul class="flex justify-end items-center list mv0">
+      <ul class="flex-ns dn justify-end items-center list mv0">
         <li class="ml3 pl2 fw6">About</li>
         <li class="ml3 pl2 fw6">Work</li>
         <li class="ml3 pl2 fw6"><a href="/resume" class="white">Resume</a></li>
@@ -57,21 +57,21 @@
         <h2 class="mb4 f2 title">Work</h2>
 
         <div class="flex flex-row-ns flex-column justify-center">
-          <div class="w-25-l w-third-m w-100 ph3">
+          <div class="w-third-ns w-100 ph3">
             <i class="fas fa-object-group f2 navy mb2 db"></i>
-            <p class="fw7">UI/UX Design</p>
+            <h4 class="f5 mb2">UI/UX Design</h4>
             <p class="f6">Clean, effective user interfaces that deliver a pleasant and engaging customer experience.</p>
           </div>
 
-          <div class="w-25-l w-third-m w-100 ph3">
+          <div class="w-third-ns w-100 ph3">
             <i class="fas fa-code f2 navy mb2 db"></i>
-            <p class="fw7">Web Development</p>
-            <p class="f6">High performing web applications built on a modern stack following the industry's best practices.</p>
+            <h4 class="f5 mb2">Web Development</h4>
+            <p class="f6">High performing web apps built on a modern stack following the industry's best practices.</p>
           </div>
 
-          <div class="w-25-l w-third-m w-100 ph3">
+          <div class="w-third-ns w-100 ph3">
             <i class="fas fa-envelope f2 navy mb2 db"></i>
-            <p class="fw7">Email Development</p>
+            <h4 class="f5 mb2">Email Development</h4>
             <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
           </div>
         </div>
@@ -106,16 +106,20 @@
             <div class="mb2">
               <div class="w-100 flex">
                 <div class="w-12_25">
-                  <img src="assets/desktop_left.png" class="db">
+                  <img src="assets/desktop_left.png" class="db disabled">
                 </div>  
                 
                 <div class="w-75_50">
                   <div class="flex flex-column justify-between h-100">
-                    <img src="assets/desktop_top.png" class="db">
+                    <img src="assets/desktop_top.png" class="db disabled">
 
                     <div class="relative h-100">
                       <transition-group>
-                        <img v-for="(screen, i) in activeProject.screens" :key="screen" :src="screen" :style="{ 'display': i == activeScreen ? 'block' : 'none' }" :class="{'o-40': progressBar.opacity === 1}">
+                        <img v-for="(screen, i) in activeProject.screens"
+                          :key="screen" 
+                          :src="screen" 
+                          :style="{ 'display': i == activeScreen ? 'block' : 'none' }" 
+                          :class="{'o-40': progressBar.opacity === 1}">
                       </transition-group>
 
                       <div class="absolute top-0 left-0 right-0 z-999">
@@ -123,12 +127,12 @@
                       </div>  
                     </div>  
  
-                    <img src="assets/desktop_bottom.png" class="db">
+                    <img src="assets/desktop_bottom.png" class="db disabled">
                   </div>  
                 </div>  
                 
                 <div class="w-12_25">
-                  <img src="assets/desktop_right.png" class="db">
+                  <img src="assets/desktop_right.png" class="db disabled">
                 </div>  
 
               </div>  
