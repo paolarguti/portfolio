@@ -84,16 +84,16 @@
         <h3 class="f3">Projects</h3>
         
         <div id="work" class="flex items-start mb3">
-          <div class="w-40-l w-100">
-            <div v-for="project in projects" class="mb4 flex items-center">
-              <input type="radio" :id="project.company" :value="project" v-model="activeProject" class="dn">
+          <div class="w-40-l pr4-l w-100">
+            <div v-for="project in projects" class="mb4 flex items-baseline">
+              <input type="radio" :id="project.title" :value="project" v-model="activeProject" class="dn">
 
-              <i class="fas fa-cloud f4 mr3 link dn db-l" :class="{'o-0': project.company !== activeProject.company }"></i>
+              <i class="fas fa-tv mr3 link dn db-l" :class="{'o-0': project.title !== activeProject.title }"></i>
 
-              <label :for="project.company" class="pointer">
+              <label :for="project.title" class="pointer">
                 <h3 class="mb1 f4 link"
-                  :class="{ 'active': project.company === activeProject.company }">
-                  {{ project.company }}
+                  :class="{ 'active': project.title === activeProject.title }">
+                  {{ project.title }}
                 </h3>
                 <p class="f7 fw7 tracked mb0 gray">
                   {{ project.services }}
@@ -105,8 +105,13 @@
           <div class="w-60 dn db-l">
             <div class="mb2">
               <div class="w-100 flex">
-                <div class="w-12_25">
+                <div class="w-12_25 relative">
                   <img src="assets/desktop_left.png" class="db disabled">
+                  <div class="absolute absolute--fill flex items-center h-100 w-100 pointer"
+                    :class="{ 'disabled o-40': activeScreen === 0 }"
+                    @click="activeScreen = activeScreen - 1">
+                    <i class="fas fa-chevron-left link"></i>
+                  </div>  
                 </div>  
                 
                 <div class="w-75_50">
@@ -117,7 +122,7 @@
                       <transition-group>
                         <img v-for="(screen, i) in activeProject.screens"
                           :key="screen" 
-                          :src="screen" 
+                          :src="'assets/' + screen" 
                           :style="{ 'display': i == activeScreen ? 'block' : 'none' }" 
                           :class="{'o-40': progressBar.opacity === 1}">
                       </transition-group>
@@ -131,19 +136,29 @@
                   </div>  
                 </div>  
                 
-                <div class="w-12_25">
+                <div class="w-12_25 relative">
                   <img src="assets/desktop_right.png" class="db disabled">
+                  <div class="absolute absolute--fill flex justify-end items-center h-100 w-100 pointer"
+                    :class="{ 'disabled o-40': activeScreen == activeProject.screens.length - 1 }"
+                    @click="activeScreen = activeScreen + 1">
+                      <i class="fas fa-chevron-right link"></i>
+                  </div> 
                 </div>  
 
               </div>  
               
             </div>
 
-            <h3 class="mb2 f4">{{ activeProject.company }}</h3>
+            <h3 class="mb2 f4">{{ activeProject.title }}</h3>
 
             <p>{{ activeProject.description }}</p>
 
-            <a class="btn" href="#">Learn More &#187;</a>
+            <p v-if="activeProject.role">
+              <span class="fw8">My Role: </span>
+              {{ activeProject.role }}
+            </p>
+
+            <!-- <a class="btn" href="#">Learn More &#187;</a> -->
           </div>
         </div>
       </div>
@@ -206,35 +221,40 @@
       data: {
         projects: [
           {
-            company: 'Dill Platform by From the Farmer',
-            description: 'Online platform helping subscription-based companies offer a delivery schedule, weekly customization and recurring billing.',
+            title: 'Dill Platform by From the Farmer',
+            description: 'Dill platform leveraged From the Farmer’s in-house technology to help other subscription-based companies offer a streamlined signup process, weekly customization and a delivery calendar.',
+            role: 'Designing and building the customer’s (Vegetable and Butcher) signup process and account interface.',
             services: 'UI/UX Design • Web Development',
             url: '',
-            screens: ['assets/vb1.png', 'assets/ftf1.png']
+            screens: ['project_vb1.png', 'project_vb2.png', 'project_vb3.png', 'project_vb4.png', 'project_vb5.png', 'project_vb6.png'],
+            activeScreen: 2
           },
 
           {
-            company: 'From the Farmer',
+            title: 'From the Farmer',
             description: 'Farm box delivery service in the DC area offering weekly customizable produce boxes on a flexible schedule.',
             services: 'UI/UX Design • Web Development • Email Development',
             url: '',
-            screens: ['assets/ftf1.png', 'assets/vb1.png']
+            screens: ['project_vb1.png', 'project_vb2.png', 'project_vb3.png', 'project_vb4.png', 'project_vb5.png', 'project_vb6.png'],
+            activeScreen: 2
           },
 
           {
-            company: 'Retirement Fail',
+            title: 'Retirement Fail',
             description: 'Book on retirement planning by Greg Sullivan.',
             services: 'UI/UX Design • Web Development • Email Development',
             url: '',
-            screens: ['assets/rf1.png', 'assets/vb1.png'],
+            screens: ['project_vb1.png', 'project_vb2.png', 'project_vb3.png', 'project_vb4.png', 'project_vb5.png', 'project_vb6.png'],
+            activeScreen: 2
           },
 
           {
-            company: 'Listening Crowd',
+            title: 'Listening Crowd',
             description: 'A podcast annotation tool.',
             services: 'UI/UX Design • Web Development',
             url: '',
-            screens: ['assets/lc1.png', 'assets/vb1.png'],
+            screens: ['project_vb1.png', 'project_vb2.png', 'project_vb3.png', 'project_vb4.png', 'project_vb5.png', 'project_vb6.png'],
+            activeScreen: 2
           },
         ],
 
@@ -249,9 +269,11 @@
       },
 
       watch: {
-        activeProject: function() {
+        activeProject: function(newProject, oldProject) {
           this.progressBar.width = '0%';
-          this.progressBar.opacity = 1;
+          this.progressBar.opacity = 1; 
+          
+          this.activeScreen = newProject.activeScreen;
           
           var self = this;
           
