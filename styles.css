@@ -31,18 +31,7 @@ h2, h3, h4 {
 }
 
 /*** TACHYONS OVERWRITE ***/
-.tracked { letter-spacing: 0.0275em; }
-
-.bg-blue { background-color: #0e5172; }
-
-.bg-light-blue { background-color: #e5f4fc }
-
-.gray { color: #758b9f; }
-
-.navy { color: #042b46; }
-
-.b--navy { border-color: #042b46; }
-
+/*type scale*/
 h1, .f1 { font-size: 2.441rem; }
 
 h2, .f2 { font-size: 1.953rem; }
@@ -55,7 +44,23 @@ h4, .f4 { font-size: 1.25rem; }
 
 .f7 { font-size: 0.64rem; }
 
+.tracked { letter-spacing: 0.0275em; }
 
+.bg-blue { background-color: #0e5172; }
+
+.bg-light-blue { background-color: #e5f4fc }
+
+.gray { color: #758b9f; }
+
+.navy { color: #042b46; }
+
+.b--navy { border-color: #042b46; }
+
+.bg-gray { background-color: #758b9f; }
+
+.bg-light-gray { background-color: #a3b2bf; }
+
+.bg-near-white { background-color: #f8f8f7; }
 
 
 /*** HELPERS ***/
@@ -85,7 +90,7 @@ h4, .f4 { font-size: 1.25rem; }
   display: inline-block;
 }
 
-.bg-primary { background-color: #f8f8f7; }
+
 
 .br50 { border-radius: 50%; }
 
@@ -136,9 +141,7 @@ main[size="A4"] {
 
 /*** TABLET AND DESKTOP ***/
 @media screen and (min-width: 30em) {
-  .bg-primary-ns {
-    background-color: #f8f8f7;
-  }
+  .bg-near-white-ns { background-color: #f8f8f7; }
 }
 
 /*** PRINT ***/

@@ -18,240 +18,255 @@
 </head>
 
 <body>
-  <div class="bg-blue white">
-    <div class="container flex justify-between pv2 bb">
-      <div class="flex items-center">
-        
-        <div class="w3 pr3 flex items-center">
-          <img src="assets/whale_fluke.svg" class="db">
-        </div>  
-        
-        <div>
-          <h1 class="fw8 mb0 mt0 f5">Whaley Design</h1>
-          <p class="mb0 f7">By Paola Gutiérrez.</p>
-        </div>
-      </div>
-
-      <ul class="flex-ns dn justify-end items-center list mv0">
-        <li class="ml3 pl2 fw6">Work</li>
-        <li class="ml3 pl2 fw6">About</li>
-        <li class="ml3 pl2 fw6"><a href="/resume" class="white">Resume</a></li>
-        <li class="ml3 pl2 fw6">Contact</li>
-      </ul>
-    </div>
-  </div>  
-
-  <main>
-    <div class="bg-blue white">
-      <div class="container pv5 tc">
-        <div class="paragraph center pv4">
-          <h1 class="mb3">I Design, Code and Freedive.</h1>
-          <p class="mb4">Front-end web developer helping companies build effective user interfaces. I love to dive into new challenges and into the blue ocean.</p>
-          <a href="" class="btn">Get in touch</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- work -->
-    <div class="bg-primary pb5">
-      <img class="w-100 db" src="assets/wave-blue.svg">
-
-      <div class="container pv4 mb3 tc">
-        <h2 class="mb4 title">Work</h2>
-
-        <div class="flex flex-row-ns flex-column justify-center">
-          <div class="w-third-ns w-100 ph3 tc">
-            <!-- <i class="fas fa-object-group f2 navy mb2 db"></i> -->
-            <img src="assets/web_design.svg" class="w3 db center mb3">
-            <h4 class="f5 mb2">UI/UX Design</h4>
-            <p class="f6">Clean, effective user interfaces that deliver a pleasant and engaging customer experience.</p>
-          </div>
-
-          <div class="w-third-ns w-100 ph3">
-            <img src="assets/coding.svg" class="w3 db center mb3">
-            <h4 class="f5 mb2">Web Development</h4>
-            <p class="f6">Elegant web apps built on a modern stack following the industry's best practices.</p>
-          </div>
-
-          <div class="w-third-ns w-100 ph3">
-            <img src="assets/email_development.svg" class="w3 db center mb3">
-            <h4 class="f5 mb2">Email Development</h4>
-            <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- projects -->
+  <div id="app">
+    <header class="bg-blue white">
       <div class="container">
-        <h3>Recent Projects</h3>
-        
-        <div id="work" class="flex items-start mb3">
-          <div class="w-40-l pr4-l w-100">
-            <div v-for="project in projects" class="mb3 flex items-baseline">
-              <input type="radio" :id="project.title" :value="project" v-model="activeProject" class="dn">
-
-              <img src="assets/display.svg" class="w1 dn db-l mr2" :class="{'o-0': project.title !== activeProject.title }">
-                
-              <label :for="project.title" class="pointer">
-                <h3 class="mb1 f4 link"
-                  :class="{ 'active': project.title === activeProject.title }">
-                  {{ project.title }}
-                </h3>
-                <div class="flex flex-wrap mb1 pb2">
-                  <div v-for="tag in project.tags" class="mr1 mb1 pv1 ph2" style="background: #a3b2bf;">
-                    <p class="mb0 white f7">{{ tag }}</p>
-                  </div>  
-                </div>  
-              </label>
+        <div class="flex justify-between pv2 bb">
+          <div class="flex items-center">
+            <div class="w3 pr3 flex items-center">
+              <img src="assets/whale_fluke.svg" class="db" alt="logo">
+            </div>  
+            
+            <div>
+              <h1 class="fw8 mb0 mt0 f5">Whaley Design</h1>
+              <p class="mb0 f7">By Paola Gutiérrez.</p>
             </div>
           </div>
 
-          <div v-if="largeDevice() || Object.keys(activeProject).length" class="w-60-l flex flex-column fixed absolute--fill static-l bg-black-40 bg-none-l pa2 pa0-l">
-            <div class="flex flex-column bg-white pa3 h-100 bg-none-l h-auto-l">
-              <div class="tr db dn-l">
-                <a href="" @click.prevent="activeProject = {}">
-                  <i class="fas fa-times mb1"></i>
-                </a>
-              </div>
+          <nav>
+            <ul class="h-100 flex-ns dn justify-end items-center list mv0">
+              <li class="ml3 pl2 ttu tracked f6">
+                <a href="#work" class="white" @click.prevent="scroll('work')">Work</a>
+              </li>
+              
+              <li class="ml3 pl2 ttu tracked f6">
+                <a href="#about" class="white" @click.prevent="scroll('about')">About</a>
+              </li>
+              
+              <li class="ml3 pl2 ttu tracked f6">
+                <a href="/resume" class="white">Resume</a>
+              </li>
 
-              <div class="overflow-auto overflow-visible-l">
-                <div class="mb2">
-                  <div class="w-100 flex">
-                    <div class="w-12_25 relative">
-                      <img src="assets/mac_left.png" class="db disabled">
-                      <div class="absolute absolute--fill flex items-center h-100 w-100 pointer"
-                        :class="{ 'disabled o-40': activeScreen === 0 }"
-                        @click="activeScreen = activeScreen - 1">
-                        <i class="fas fa-chevron-left link"></i>
-                      </div>  
-                    </div>  
-                    
-                    <div class="w-75_50">
-                      <div class="flex flex-column justify-between h-100">
-                        <img src="assets/mac_top.png" class="db disabled">
+              <li class="ml3 pl2 ttu tracked f6">
+                <a href="mailto:paola.rguti@gmail.com" class="white">Contact</a>
+              </li>
+            </ul>
+          </nav>  
+        </div>  
+      </div>
+    </header>  
 
-                        <div class="relative h-100">
-                          <transition-group>
-                            <img v-for="(screen, i) in activeProject.screens"
-                              :key="screen" 
-                              :src="'assets/' + screen" 
-                              :style="{ 'display': i == activeScreen ? 'block' : 'none' }" 
-                              :class="{'o-40': progressBar.opacity === 1}">
-                          </transition-group>
+    <main>
+      <section class="bg-blue white">
+        <div class="container pv5 tc">
+          <div class="paragraph center pv4">
+            <h1 class="mb3">I Design, Code and Freedive.</h1>
+            <p class="mb4">Front-end web developer helping companies build effective user interfaces. I love to dive into new challenges and into the blue ocean.</p>
+            <a href="" class="btn">Get in touch</a>
+          </div>
+        </div>
+      </section>
 
-                          <div class="absolute top-0 left-0 right-0 z-999">
-                            <div id="progressBar" :style="progressBar"></div>
-                          </div>  
-                        </div>  
-     
-                        <img src="assets/mac_bottom.png" class="db disabled">
-                      </div>  
-                    </div>  
-                    
-                    <div class="w-12_25 relative">
-                      <img src="assets/mac_right.png" class="db disabled">
-                      <div class="absolute absolute--fill flex justify-end items-center h-100 w-100 pointer"
-                        :class="{ 'disabled o-40': activeScreen == activeProject.screens.length - 1 }"
-                        @click="activeScreen = activeScreen + 1">
-                          <i class="fas fa-chevron-right link"></i>
-                      </div> 
+      <!-- work -->
+      <section class="bg-near-white pb5">
+        <img class="w-100 db" src="assets/wave-blue.svg">
+
+        <div id="work" class="container pv4 mv3 tc">
+          <h2 class="title lh-title tc mb3 pb2">Work</h2>
+
+          <div class="flex flex-row-ns flex-column justify-center">
+            <div class="w-third-ns w-100 ph3-ns mb3 mb0-ns">
+              <!-- <i class="fas fa-object-group f2 navy mb2 db"></i> -->
+              <img src="assets/web_design.svg" class="w3 db center mb3">
+              <h4 class="f5 mb2">UI/UX Design</h4>
+              <p class="f6">Clean, effective user interfaces that deliver a pleasant and engaging customer experience.</p>
+            </div>
+
+            <div class="w-third-ns w-100 ph3-ns mb3 mb0-ns">
+              <img src="assets/coding.svg" class="w3 db center mb3">
+              <h4 class="f5 mb2">Web Development</h4>
+              <p class="f6">Elegant web apps built on a modern stack following the industry's best practices.</p>
+            </div>
+
+            <div class="w-third-ns w-100 ph3-ns mb3 mb0-ns">
+              <img src="assets/email_development.svg" class="w3 db center mb3">
+              <h4 class="f5 mb2">Email Development</h4>
+              <p class="f6">Beautifully designed emails that look and work great across different apps and devices.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- projects -->
+        <div class="container">
+          <h3>Recent Projects</h3>
+          
+          <div id="projects" class="flex items-start">
+            <div class="w-40-l pr5-l w-100">
+              <div v-for="project in projects" class="mb3 flex items-baseline">
+                <input type="radio" :id="project.title" :value="project" v-model="activeProject" class="dn">
+
+                <img src="assets/display.svg" class="w1 dn db-l mr2" :class="{'o-0': project.title !== activeProject.title }">
+                  
+                <label :for="project.title" class="pointer">
+                  <h3 class="mb1 f4 link"
+                    :class="{ 'active': project.title === activeProject.title }">
+                    {{ project.title }}
+                  </h3>
+
+                  <div class="flex flex-wrap mb1 pb2">
+                    <div v-for="tag in project.tags" class="bg-light-gray mr1 mb1 pv1 ph2">
+                      <p class="mb0 white f7">{{ tag }}</p>
                     </div>  
                   </div>  
-                  <img src="assets/mac_base.png" class="db disabled w-100">
+                </label>
+              </div>
+            </div>
+
+            <div v-if="isLargeDevice() || Object.keys(activeProject).length" class="w-60-l flex flex-column fixed absolute--fill static-l bg-black-40 bg-none-l pa2 pa0-l">
+              <div class="flex flex-column bg-white pa3 pa0-l h-100 bg-none-l h-auto-l">
+                <div class="tr db dn-l">
+                  <a href="" @click.prevent="activeProject = {}">
+                    <i class="fas fa-times mb1"></i>
+                  </a>
                 </div>
 
-                <h3 class="mb2 f4">{{ activeProject.title }}</h3>
+                <div class="overflow-auto overflow-visible-l">
+                  <div class="mb2">
+                    <div class="w-100 flex">
+                      <div class="w-12_25 relative">
+                        <img src="assets/mac_left.png" class="db disabled">
+                        <div class="absolute absolute--fill flex items-center h-100 w-100 pointer"
+                          :class="{ 'disabled o-40': activeScreen === 0 }"
+                          @click="activeScreen = activeScreen - 1">
+                          <i class="fas fa-chevron-left link"></i>
+                        </div>  
+                      </div>  
+                      
+                      <div class="w-75_50">
+                        <div class="flex flex-column justify-between h-100">
+                          <img src="assets/mac_top.png" class="db disabled">
 
-                <p>{{ activeProject.description }}</p>
+                          <div class="relative h-100">
+                            <transition-group>
+                              <img v-for="(screen, i) in activeProject.screens"
+                                :key="screen" 
+                                :src="'assets/' + screen" 
+                                :style="{ 'display': i == activeScreen ? 'block' : 'none' }" 
+                                :class="{'o-40': progressBar.opacity === 1}">
+                            </transition-group>
 
-                <p v-if="activeProject.role">
-                  <span class="fw8">My Role: </span>
-                  {{ activeProject.role }}
-                </p>
+                            <div class="absolute top-0 left-0 right-0 z-999">
+                              <div id="progressBar" :style="progressBar"></div>
+                            </div>  
+                          </div>  
+       
+                          <img src="assets/mac_bottom.png" class="db disabled">
+                        </div>  
+                      </div>  
+                      
+                      <div class="w-12_25 relative">
+                        <img src="assets/mac_right.png" class="db disabled">
+                        <div class="absolute absolute--fill flex justify-end items-center h-100 w-100 pointer"
+                          :class="{ 'disabled o-40': activeScreen == activeProject.screens.length - 1 }"
+                          @click="activeScreen = activeScreen + 1">
+                            <i class="fas fa-chevron-right link"></i>
+                        </div> 
+                      </div>  
+                    </div>  
+                    <img src="assets/mac_base.png" class="db disabled w-100">
+                  </div>
+
+                  <h3 class="mb2 f4">{{ activeProject.title }}</h3>
+
+                  <p>{{ activeProject.description }}</p>
+
+                  <p v-if="activeProject.role" class="mb0">
+                    <span class="fw8">My Role: </span>
+                    {{ activeProject.role }}
+                  </p>
+                </div>  
+              </div>                
+
+              <!-- <a class="btn" href="#">Learn More &#187;</a> -->
+            </div>
+          </div>
+
+          <!-- <div class="container pv5 tc">
+            <p class="b">Toolbox</p>
+            <div class="flex justify-center">
+              <div class="bg-white ph4 pv2 h3 mh1">
+                <img src="assets/logo-html5.png" class="db h-100">
               </div>  
-            </div>                
-
-            <!-- <a class="btn" href="#">Learn More &#187;</a> -->
-          </div>
-        </div>
-
-        <!-- <div class="container pv5 tc">
-          <p class="b">Toolbox</p>
-          <div class="flex justify-center">
-            <div class="bg-white ph4 pv2 h3 mh1">
-              <img src="assets/logo-html5.png" class="db h-100">
-            </div>  
-            <div class="bg-white ph4 pv2 h3 mh1">
-              <img src="assets/logo-css3.png" class="db h-100">
+              <div class="bg-white ph4 pv2 h3 mh1">
+                <img src="assets/logo-css3.png" class="db h-100">
+              </div>
+              
+              <div class="bg-white ph4 pv2 h3 mh1">  
+                <img src="assets/logo-sass.png" class="db h-100">
+              </div>
+              
+              <div class="bg-white ph4 pv2 h3 mh1">  
+                <img src="assets/logo-js.png" class="db h-100">
+              </div>
+              
+              <div class="bg-white ph4 pv2 h3 mh1">  
+                <img src="assets/logo-vue.png" class="db h-100">
+              </div>
+              
+              <div class="bg-white ph4 pv2 h3 mh1">  
+                <img src="assets/logo-shopify.png" class="db h-100">
+              </div>  
             </div>
-            
-            <div class="bg-white ph4 pv2 h3 mh1">  
-              <img src="assets/logo-sass.png" class="db h-100">
-            </div>
-            
-            <div class="bg-white ph4 pv2 h3 mh1">  
-              <img src="assets/logo-js.png" class="db h-100">
-            </div>
-            
-            <div class="bg-white ph4 pv2 h3 mh1">  
-              <img src="assets/logo-vue.png" class="db h-100">
-            </div>
-            
-            <div class="bg-white ph4 pv2 h3 mh1">  
-              <img src="assets/logo-shopify.png" class="db h-100">
-            </div>  
-          </div>
-        </div> -->
-      </div>
-    </div>  
-
-    <!-- testimonial -->
-    <div class="bg-half">
-
-      <div class="container">
-        <div class="bg-light-blue pv4 flex items-center justify-center">
-          <div class="paragraph center tc">
-            <p class="lh-copy">“Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis.”</p>
-
-            <p class="f6 mb0">- Jason Lundberg, Co-Founder and CEO at From the Farmer.</p>
-          </div>
-
-          <!-- <div class="w-third ph3 tc">
-            <img src="https://lh4.googleusercontent.com/-dZvXUfhPfas/AAAAAAAAAAI/AAAAAAAAA6Q/cQMxqyMFrp4/photo.jpg" class="w3 br50 flip-x">
-            <p class="mb0 fw6">Jason Lundberg</p>
-            <p class="gray f7 mb0">Founder and CEO at From the Farmer</p>
           </div> -->
-        </div>  
-      </div>
-    </div>
+        </div>
+      </section>  
 
-    <div>
-      <div class="container pv5">
-        <h2 class="title tc">About</h2>
-        <div class="flex flex-row-ns flex-column items-center center ph6-l">
-          <div class="w-third-ns w-100 ph0 ph3-ns tc">
-            <img src="assets/headshot.jpeg" class="br50 db w4 center w-100-ns mb3 mb0-ns">
-          </div>  
-          
-          <div class="w-two-thirds-ns w-100 ph0 ph3-ns">
-            <p>I'm Paola, I love to create simple, clean, effective user experiences all the way from ideation to implementation and constant iteration.</p> 
+      <!-- testimonial -->
+      <section class="bg-half">
+        <div class="container">
+          <div class="bg-light-blue pv4 flex items-center justify-center">
+            <div class="paragraph center tc">
+              <p class="lh-copy">“Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis.”</p>
 
-            <p>I think of the text editor as my ultimate design tool where I can transform ideas into real-life solutions.</p>
+              <p class="f6 mb0">- Jason Lundberg, Co-Founder and CEO at From the Farmer.</p>
+            </div>
 
-            <p>When offline, you can find me biking around Medellín, Colombia with my husband or somewhere in the world exploring the ocean on a single breath.</p>
+            <!-- <div class="w-third ph3 tc">
+              <img src="https://lh4.googleusercontent.com/-dZvXUfhPfas/AAAAAAAAAAI/AAAAAAAAA6Q/cQMxqyMFrp4/photo.jpg" class="w3 br50 flip-x">
+              <p class="mb0 fw6">Jason Lundberg</p>
+              <p class="gray f7 mb0">Founder and CEO at From the Farmer</p>
+            </div> -->
           </div>  
         </div>
-      </div> 
-    </div> 
+      </section>
 
-    <div style="background: #758b9f;">
+      <!-- about -->
+      <section id="about">
+        <div class="container pv5">
+          <h2 class="title lh-title tc mb3 pb2">About</h2>
+          <div class="flex flex-row-ns flex-column items-center center ph6-l">
+            <div class="w-third-ns w-100 ph0 ph3-ns tc">
+              <img src="assets/headshot.jpeg" class="br50 db w4 center w-100-ns mb3 mb0-ns">
+            </div>  
+            
+            <div class="w-two-thirds-ns w-100 ph0 ph3-ns">
+              <p>I'm Paola, I love to create simple, clean, effective user experiences all the way from ideation to implementation and constant iteration.</p> 
 
-      <!-- technologies -->
+              <p>I think of the text editor as my ultimate design tool where I can transform ideas into real-life solutions.</p>
+
+              <p>When offline, you can find me biking around Medellín, Colombia with my husband or somewhere in the world exploring the ocean on a single breath.</p>
+            </div>  
+          </div>
+        </div> 
+      </section> 
+    </main>
+
+    <footer class="bg-gray">
       <div class="container tc white">
         <div class="pt5 pb4">
-          <h2 class="mb3 f3 title">Get in touch!</h2>
+          <h2 class="title lh-title tc mb3 pb2">Get in touch!</h2>
 
-          <p class="f4 mb2">paola.rguti@gmail.com</p>
+          <p class="f4 mb3">paola.rguti@gmail.com</p>
 
           <div class="flex justify-center f4">
             <div class="ba br50 w2 h2 flex justify-center items-center mh1">
@@ -264,27 +279,25 @@
           </div>  
         </div>  
 
-        <div class="bt b--white pv2">
-          <p class="f7">Handcrafted by me <i class="far fa-copyright"></i> 2019</p>
+        <div class="bt b--white pv3">
+          <p class="f7 mb0">Handcrafted by me <i class="far fa-copyright"></i> 2019</p>
         </div>  
-
       </div>  
-    </div>
-  </main>
+    </footer>
+  </div>  
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <script type="text/javascript">
-    var subscription = new Vue({
-      el: '#work',
+    var app = new Vue({
+      el: '#app',
       data: {
         projects: [
           {
             title: 'Dill Platform by From the Farmer',
             description: 'Dill platform leverages From the Farmer’s in-house technology to help other subscription-based companies offer a streamlined signup process, weekly customization and a delivery calendar.',
+            role: 'I designed and built the customer interface.',
             tags: ['UI/UX Design', 'Web Development', 'HTML', 'SCSS', 'JS', 'Vue.js'],
-            role: 'I Designed and built customers’ signup process and account interface.',
-            services: 'UI/UX Design • Web Development',
             url: '',
             screens: ['project_vb1.png', 'project_vb2.png', 'project_vb3.png', 'project_vb4.png', 'project_vb5.png', 'project_vb6.png'],
             activeScreen: 2
@@ -293,9 +306,8 @@
           {
             title: 'From the Farmer',
             description: 'Farm box delivery service in the DC area offering weekly customizable produce boxes on a flexible schedule.',
+            role: 'I collaborated with other designers on the look and feel of the site. I built the customer interface as a shopify theme. I designed and built multiple email campaigns.',
             tags: ['UI/UX Design', 'Web Development', 'Email Development', 'HTML', 'SCSS', 'JS', 'Vue.js', 'Liquid Logic', 'Shopify'],
-            role: 'I collaborated with other designers on the look and feel of the site. I built the customer interface as a shopify theme. I designed and built multiple emails.',
-            services: 'UI/UX Design • Web Development • Email Development',
             url: '',
             screens: ['project_ftf1.png', 'project_ftf2.png', 'project_ftf3.png', 'project_ftf4.png', 'project_ftf5.png', 'project_ftf6.png'],
             activeScreen: 0
@@ -304,7 +316,8 @@
           {
             title: 'Retirement Fail',
             description: 'Book on retirement planning by Greg Sullivan.',
-            tags: ['UI/UX Design', 'Web Development', 'HTML', 'CSS', 'Vue.js'],
+            role: 'I designed and built a static website for the book release.',
+            tags: ['UI/UX Design', 'Web Development', 'HTML', 'CSS'],
             services: 'UI/UX Design • Web Development • Email Development',
             url: '',
             screens: ['project_rf1.png', 'project_rf2.png', 'project_rf3.png', 'project_rf4.png'],
@@ -314,6 +327,7 @@
           {
             title: 'Listening Crowd',
             description: 'A podcast crowd annotation tool.',
+            role: 'I designed the look and feel as well as wrote the markup of the app.',
             tags: ['UI/UX Design', 'Web Development', 'HTML', 'SCSS'],
             services: 'UI/UX Design • Web Development',
             url: '',
@@ -324,6 +338,7 @@
           {
             title: 'Nirvana Oceanquest',
             description: 'A freediving depth competition.',
+            role: 'I designed and built a static website to promote the competition.',
             tags: ['UI/UX Design', 'Web Development', 'HTML', 'CSS'],
             services: 'UI/UX Design • Web Development',
             url: '',
@@ -364,17 +379,24 @@
       },
 
       methods: {
-        largeDevice: function() {
+        isLargeDevice: function() {
           if (window.matchMedia("(min-width: 769px)").matches) { 
             return true;
           } else {
             return false;
           }
-        }
+        },
+
+        scroll: function(id) {
+          document.getElementById(id).scrollIntoView({ 
+            behavior: 'smooth',
+            block: "start" 
+          });
+        },
       },
 
       created: function() {
-        if (this.largeDevice()) {
+        if (this.isLargeDevice()) {
           this.activeProject = this.projects[0];
         }  
       }
