@@ -22,6 +22,7 @@ a,
 h1, 
 .title {
   font-family: 'Carter One';
+  font-weight: 400;
 }
 
 h2, h3, h4 {
@@ -74,7 +75,7 @@ h2, h3, h4 {
 .br50 { border-radius: 50%; }
 
 .flip-x {
-  transform: scaleX(-1.1)
+  transform: scaleX(-1)
 }
 
 .disabled {
@@ -98,17 +99,24 @@ h2, h3, h4 {
   transition: width 0.5s ease;
 }
 
-.bg-halfblue {
+.bg-half {
   background-color: transparent;
-  background:    -moz-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%); 
-  background: -webkit-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%); 
-  background:         linear-gradient(to bottom, #f8f8f7 0%, #f8f8f7 38%, #a6cee7 38%, #a6cee7 100%);
+  background:    -moz-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #ffffff 38%, #ffffff 100%); 
+  background: -webkit-linear-gradient(top, #f8f8f7 0%, #f8f8f7 38%, #ffffff 38%, #ffffff 100%); 
+  background:         linear-gradient(to bottom, #f8f8f7 0%, #f8f8f7 38%, #ffffff 38%, #ffffff 100%);
 }
 
 /*** RESUME STYLES ***/
 main[size="A4"] {  
   width: 21cm;
   height: 29.7cm; 
+}
+
+/*** DESKTOP ***/
+@media screen and (min-width: 60em) {
+  .bg-none-l {
+    background: none;
+  } 
 }
 
 /*** TABLET AND DESKTOP ***/
