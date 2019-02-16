@@ -45,7 +45,7 @@
     <div class="bg-blue white">
       <div class="container pv5 tc">
         <div class="paragraph center pv4">
-          <h1 class="f2 mb3">I Design, Code and Freedive.</h1>
+          <h1 class="mb3">I Design, Code and Freedive.</h1>
           <p class="mb4">Front-end web developer helping companies build engaging user interfaces. I love to dive into new challenges and into the blue ocean.</p>
           <a href="" class="btn">get in touch</a>
         </div>
@@ -57,7 +57,7 @@
       <img class="w-100 db" src="assets/wave-blue.svg">
 
       <div class="container pv4 mb3 tc">
-        <h2 class="mb4 f2 title">Work</h2>
+        <h2 class="mb4 title">Work</h2>
 
         <div class="flex flex-row-ns flex-column justify-center">
           <div class="w-third-ns w-100 ph3 tc">
@@ -83,11 +83,11 @@
 
       <!-- projects -->
       <div class="container">
-        <h3 class="f3">Projects</h3>
+        <h3>Projects</h3>
         
         <div id="work" class="flex items-start mb3">
           <div class="w-40-l pr4-l w-100">
-            <div v-for="project in projects" class="mb4 flex items-baseline">
+            <div v-for="project in projects" class="mb3 flex items-baseline">
               <input type="radio" :id="project.title" :value="project" v-model="activeProject" class="dn">
 
               <img src="assets/display.svg" class="w1 dn db-l mr2" :class="{'o-0': project.title !== activeProject.title }">
@@ -97,9 +97,11 @@
                   :class="{ 'active': project.title === activeProject.title }">
                   {{ project.title }}
                 </h3>
-                <p class="f7 fw7 tracked mb0 gray">
-                  {{ project.services }}
-                </p>
+                <div class="flex flex-wrap mb1 pb2">
+                  <div v-for="tag in project.tags" class="mr1 mb1 pv1 ph2" style="background: #a3b2bf;">
+                    <p class="mb0 white f7">{{ tag }}</p>
+                  </div>  
+                </div>  
               </label>
             </div>
           </div>
@@ -223,10 +225,9 @@
       </div>
     </div>
 
-
     <div>
       <div class="container pv5">
-        <h2 class="title f2 tc">About</h2>
+        <h2 class="title tc">About</h2>
         <div class="flex items-center paragraph center">
           <img src="assets/headshot.jpeg" class="br50 w-third">
         </div>
@@ -271,6 +272,7 @@
           {
             title: 'Dill Platform by From the Farmer',
             description: 'Dill platform leverages From the Farmer’s in-house technology to help other subscription-based companies offer a streamlined signup process, weekly customization and a delivery calendar.',
+            tags: ['UI/UX Design', 'Web Development', 'HTML', 'CSS', 'JS', 'Vue.js'],
             role: 'I Designed and built the customers’ (i.e. Vegetable and Butcher) signup process and account interface.',
             services: 'UI/UX Design • Web Development',
             url: '',
@@ -281,6 +283,7 @@
           {
             title: 'From the Farmer',
             description: 'Farm box delivery service in the DC area offering weekly customizable produce boxes on a flexible schedule.',
+            tags: ['UI/UX Design', 'Web Development', 'Email Development', 'HTML', 'CSS', 'JS', 'Liquid Logic', 'Vue.js', 'Shopify'],
             role: 'I collaborated with other designers on the look and feel of the site. I built the customer interface as a shopify theme. I designed and built multiple emails.',
             services: 'UI/UX Design • Web Development • Email Development',
             url: '',
@@ -291,6 +294,7 @@
           {
             title: 'Retirement Fail',
             description: 'Book on retirement planning by Greg Sullivan.',
+            tags: ['UI/UX Design', 'Web Development', 'HTML', 'CSS', 'Vue.js'],
             services: 'UI/UX Design • Web Development • Email Development',
             url: '',
             screens: ['project_rf1.png', 'project_rf2.png', 'project_rf3.png', 'project_rf4.png'],
@@ -300,6 +304,7 @@
           {
             title: 'Listening Crowd',
             description: 'A podcast crowd annotation tool.',
+            tags: ['UI/UX Design', 'Web Development', 'HTML', 'CSS'],
             services: 'UI/UX Design • Web Development',
             url: '',
             screens: ['project_lc1.png', 'project_lc2.png', 'project_lc3.png'],
@@ -309,6 +314,7 @@
           {
             title: 'Nirvana Oceanquest',
             description: 'A freediving depth competition.',
+            tags: ['UI/UX Design', 'Web Development', 'HTML', 'CSS'],
             services: 'UI/UX Design • Web Development',
             url: '',
             screens: ['project_noq1.png', 'project_noq2.png', 'project_noq3.png'],

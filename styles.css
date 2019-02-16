@@ -43,6 +43,21 @@ h2, h3, h4 {
 
 .b--navy { border-color: #042b46; }
 
+h1, .f1 { font-size: 2.441rem; }
+
+h2, .f2 { font-size: 1.953rem; }
+
+h3, .f3 { font-size: 1.563rem; }
+
+h4, .f4 { font-size: 1.25rem; }
+
+.f6 { font-size: 0.8rem; }
+
+.f7 { font-size: 0.64rem; }
+
+
+
+
 /*** HELPERS ***/
 .container {
   width: 1200px;
