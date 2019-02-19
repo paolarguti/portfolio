@@ -18,10 +18,15 @@ a,
   text-decoration: none;
 }
 
-a:not(.white, .btn):hover, 
-.link:not(.white):hover,
+a:hover, 
+.link:hover,
 .link.active {
   color: #408a97;
+}
+
+a.white:hover {
+  color: #fff;
+}
 }
 
 h1, 
@@ -111,7 +116,9 @@ h4, .f4 { font-size: 1.25rem; }
 
 .btn:hover,
 .btn:active {
+  color: #fff;
   background: #408a97;
+
 }
 
 .br50 { border-radius: 50%; }

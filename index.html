@@ -107,18 +107,20 @@
 
                 <img src="assets/display.svg" class="w1 dn db-l mr2" :class="{'o-0': project.title !== activeProject.title }">
                   
-                <label :for="project.title" class="pointer">
-                  <h3 class="mb1 f4 link"
-                    :class="{ 'active': project.title === activeProject.title }">
-                    {{ project.title }}
-                  </h3>
+                <div>
+                  <label :for="project.title" class="pointer">
+                    <h3 class="mb1 f4 link"
+                      :class="{ 'active': project.title === activeProject.title }">
+                      {{ project.title }}
+                    </h3> 
+                  </label>
 
                   <div class="flex flex-wrap mb1 pb2">
                     <div v-for="tag in project.tags" class="bg-light-gray mr1 mb1 pv1 ph2">
                       <p class="mb0 white f7">{{ tag }}</p>
                     </div>  
-                  </div>  
-                </label>
+                  </div> 
+                </div>  
               </div>
             </div>
 
