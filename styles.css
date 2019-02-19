@@ -88,6 +88,7 @@ h4, .f4 { font-size: 1.25rem; }
   width: 600px;
   max-width: 100%;
 }
+
 .btn {
   padding: 0.5em 1em;
   background-color: #59aab9;
@@ -117,7 +118,6 @@ h4, .f4 { font-size: 1.25rem; }
 .btn:active {
   color: #fff;
   background: #408a97;
-
 }
 
 .br50 { border-radius: 50%; }
