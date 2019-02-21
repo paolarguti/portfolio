@@ -6,7 +6,7 @@
 
   <title>Paola Gutiérrez -Web Design and Front-End Development</title>
 
-  <meta name="description" content="I design, code and freedive">
+  <meta name="description" content="Front-end web developer that helps companies build effective user interfaces. I love diving into new challenges and into the blue ocean.">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134940170-1"></script>
@@ -17,7 +17,7 @@
 
     gtag('config', 'UA-134940170-1');
   </script>
-  
+
   <link href="https://fonts.googleapis.com/css?family=Carter+One|Muli:300,300i,400,600,700,800" rel="stylesheet">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -135,71 +135,129 @@
               </div>
             </div>
 
-            <div v-if="isLargeDevice() || Object.keys(activeProject).length" class="w-60-l flex flex-column fixed absolute--fill static-l bg-black-40 bg-none-l pa2 pa0-l">
-              <div class="flex flex-column bg-white pa3 pa0-l h-100 bg-none-l h-auto-l">
-                <div class="tr db dn-l">
-                  <a href="" @click.prevent="activeProject = {}">
-                    <i class="fas fa-times mb1"></i>
-                  </a>
-                </div>
-
-                <div class="overflow-auto overflow-visible-l">
-                  <div class="mb2">
-                    <div class="w-100 flex">
-                      <div class="w-12_25 relative">
-                        <img src="assets/mac_left.png" class="db disabled">
-                        <div class="absolute absolute--fill flex items-center h-100 w-100 pointer"
-                          :class="{ 'disabled o-40': activeScreen === 0 }"
-                          @click="activeScreen = activeScreen - 1">
-                          <i class="fas fa-chevron-left link f4"></i>
-                        </div>  
-                      </div>  
-                      
-                      <div class="w-75_50">
-                        <div class="flex flex-column justify-between h-100">
-                          <img src="assets/mac_top.png" class="db disabled">
-
-                          <div class="relative h-100">
-                            <transition-group>
-                              <img v-for="(screen, i) in activeProject.screens"
-                                :key="screen" 
-                                :src="'assets/' + screen" 
-                                :style="{ 'display': i == activeScreen ? 'block' : 'none' }" 
-                                :class="{'o-40': progressBar.opacity === 1}">
-                            </transition-group>
-
-                            <div class="absolute top-0 left-0 right-0 z-999">
-                              <div id="progressBar" :style="progressBar"></div>
-                            </div>  
-                          </div>  
-       
-                          <img src="assets/mac_bottom.png" class="db disabled">
-                        </div>  
-                      </div>  
-                      
-                      <div class="w-12_25 relative">
-                        <img src="assets/mac_right.png" class="db disabled">
-                        <div class="absolute absolute--fill flex justify-end items-center h-100 w-100 pointer"
-                          :class="{ 'disabled o-40': activeScreen == activeProject.screens.length - 1 }"
-                          @click="activeScreen = activeScreen + 1">
-                            <i class="fas fa-chevron-right link f4"></i>
-                        </div> 
-                      </div>  
+            <div v-if="!isMobile && isActiveProject" class="w-60 flex flex-column">
+              <div class="mb2">
+                <div class="w-100 flex">
+                  <div class="w-12_25 relative">
+                    <img src="assets/mac_left.png" class="db disabled">
+                    <div class="absolute absolute--fill flex items-center h-100 w-100 pointer"
+                      :class="{ 'disabled o-40': activeProjectScreen === 0 }"
+                      @click="activeProjectScreen = activeProjectScreen - 1">
+                      <i class="fas fa-chevron-left link f4"></i>
                     </div>  
-                    <img src="assets/mac_base.png" class="db disabled w-100">
+                  </div>  
+                  
+                  <div class="w-75_50">
+                    <div class="flex flex-column justify-between h-100">
+                      <img src="assets/mac_top.png" class="db disabled">
+
+                      <div class="relative h-100">
+                        <transition-group>
+                          <img v-for="(screen, i) in activeProject.screens"
+                            :key="screen" 
+                            :src="'assets/' + screen" 
+                            :style="{ 'display': i == activeProjectScreen ? 'block' : 'none' }" 
+                            :class="{'o-40': progressBar.opacity === 1}">
+                        </transition-group>
+
+                        <div class="absolute top-0 left-0 right-0 z-999">
+                          <div id="progressBar" :style="progressBar"></div>
+                        </div>  
+                      </div>  
+   
+                      <img src="assets/mac_bottom.png" class="db disabled">
+                    </div>  
+                  </div>  
+                  
+                  <div class="w-12_25 relative">
+                    <img src="assets/mac_right.png" class="db disabled">
+                    <div class="absolute absolute--fill flex justify-end items-center h-100 w-100 pointer"
+                      :class="{ 'disabled o-40': activeProjectScreen == activeProject.screens.length - 1 }"
+                      @click="activeProjectScreen = activeProjectScreen + 1">
+                        <i class="fas fa-chevron-right link f4"></i>
+                    </div> 
+                  </div>  
+                </div>  
+                <img src="assets/mac_base.png" class="db disabled w-100">
+              </div>
+
+              <h3 class="mb2 f4">{{ activeProject.title }}</h3>
+
+              <p>{{ activeProject.description }}</p>
+
+              <p v-if="activeProject.role" class="mb0">
+                <span class="fw8">My Role: </span>
+                {{ activeProject.role }}
+              </p>
+            </div>
+
+            <div v-else-if="showModal">
+              <div class="dn" :class="{'flex flex-column fixed absolute--fill bg-black-40 pa2': showModal}" >
+                <div class="flex flex-column bg-white pa3 h-100">
+                  <div class="tr db">
+                    <a href="#" @click.prevent="closeModal">
+                      <i class="fas fa-times mb1"></i>
+                    </a>
                   </div>
 
-                  <h3 class="mb2 f4">{{ activeProject.title }}</h3>
+                  <div class="overflow-auto">
+                    <div class="mb2">
+                      <div class="w-100 flex">
+                        <div class="w-12_25 relative">
+                          <img src="assets/mac_left.png" class="db disabled">
+                          <div class="absolute absolute--fill flex items-center h-100 w-100 pointer"
+                            :class="{ 'disabled o-40': activeProjectScreen === 0 }"
+                            @click="activeProjectScreen = activeProjectScreen - 1">
+                            <i class="fas fa-chevron-left link f4"></i>
+                          </div>  
+                        </div>  
+                        
+                        <div class="w-75_50">
+                          <div class="flex flex-column justify-between h-100">
+                            <img src="assets/mac_top.png" class="db disabled">
 
-                  <p>{{ activeProject.description }}</p>
+                            <div class="relative h-100">
+                              <transition-group>
+                                <img v-for="(screen, i) in activeProject.screens"
+                                  :key="screen" 
+                                  :src="'assets/' + screen" 
+                                  :style="{ 'display': i == activeProjectScreen ? 'block' : 'none' }" 
+                                  :class="{'o-40': progressBar.opacity === 1}">
+                              </transition-group>
 
-                  <p v-if="activeProject.role" class="mb0">
-                    <span class="fw8">My Role: </span>
-                    {{ activeProject.role }}
-                  </p>
-                </div>  
-              </div>                
-            </div>
+                              <div class="absolute top-0 left-0 right-0 z-999">
+                                <div id="progressBar" :style="progressBar"></div>
+                              </div>  
+                            </div>  
+         
+                            <img src="assets/mac_bottom.png" class="db disabled">
+                          </div>  
+                        </div>  
+                        
+                        <div class="w-12_25 relative">
+                          <img src="assets/mac_right.png" class="db disabled">
+                          <div class="absolute absolute--fill flex justify-end items-center h-100 w-100 pointer"
+                            :class="{ 'disabled o-40': activeProjectScreen == activeProject.screens.length - 1 }"
+                            @click="activeProjectScreen = activeProjectScreen + 1">
+                              <i class="fas fa-chevron-right link f4"></i>
+                          </div> 
+                        </div>  
+                      </div>  
+                      <img src="assets/mac_base.png" class="db disabled w-100">
+                    </div>
+
+                    <h3 class="mb2 f4">{{ activeProject.title }}</h3>
+
+                    <p>{{ activeProject.description }}</p>
+
+                    <p v-if="activeProject.role" class="mb0">
+                      <span class="fw8">My Role: </span>
+                      {{ activeProject.role }}
+                    </p>
+                  </div>                 
+                </div>
+              </div>  
+            </div>  
           </div>
         </div>
       </section>  
@@ -280,7 +338,7 @@
             tags: ['UI/UX Design', 'Web Development', 'Email Development', 'HTML', 'SCSS', 'JS', 'Vue.js', 'Liquid Logic', 'Shopify'],
             url: '',
             screens: ['project_ftf1.png', 'project_ftf2.png', 'project_ftf3.png', 'project_ftf4.png', 'project_ftf5.png', 'project_ftf6.png'],
-            activeScreen: 0
+            activeProjectScreen: 0
           },
 
           {
@@ -290,7 +348,7 @@
             tags: ['UI/UX Design', 'Web Development', 'HTML', 'SCSS', 'JS', 'Vue.js'],
             url: '',
             screens: ['project_vb1.png', 'project_vb2.png', 'project_vb3.png', 'project_vb4.png', 'project_vb5.png', 'project_vb6.png'],
-            activeScreen: 2
+            activeProjectScreen: 2
           },
 
           {
@@ -301,7 +359,7 @@
             services: 'UI/UX Design • Web Development • Email Development',
             url: '',
             screens: ['project_rf1.png', 'project_rf2.png', 'project_rf3.png', 'project_rf4.png'],
-            activeScreen: 0
+            activeProjectScreen: 0
           },
 
           {
@@ -312,7 +370,7 @@
             services: 'UI/UX Design • Web Development',
             url: '',
             screens: ['project_lc1.png', 'project_lc2.png', 'project_lc3.png'],
-            activeScreen: 1
+            activeProjectScreen: 1
           },
 
           {
@@ -323,64 +381,97 @@
             services: 'UI/UX Design • Web Development',
             url: '',
             screens: ['project_noq1.png', 'project_noq2.png', 'project_noq3.png'],
-            activeScreen: 0
+            activeProjectScreen: 0
           },
         ],
 
         activeProject: {},
 
-        activeScreen: 0,
+        activeProjectScreen: 0,
 
         progressBar: {
           opacity: 0,
           width: '0%'
+        },
+
+        windowWidth: window.innerWidth,
+
+        showModal: false
+      },
+
+      computed: {
+        isMobile: function() {
+          return this.windowWidth < 960;
+        },
+
+        isActiveProject: function() {
+          return Object.keys(this.activeProject).length > 0;
         }
       },
 
       watch: {
+        isMobile: function(mobile, large) {
+          this.showModal = false;
+
+          if (mobile) {
+            this.activeProject = {};
+          } else if (!this.isActiveProject) {
+            this.activeProject = this.projects[0];
+          }
+        },
+
         activeProject: function(newProject, oldProject) {
           this.progressBar.width = '0%';
           this.progressBar.opacity = 1; 
+          this.activeProjectScreen = newProject.activeProjectScreen;
           
-          this.activeScreen = newProject.activeScreen;
+          if (this.isMobile && this.isActiveProject) { 
+            this.showModal = true; 
+          }
           
           var self = this;
-          
           setTimeout(function() {
             self.progressBar.width = '100%';
           }, 100);
-
           setTimeout(function() {
             self.progressBar.opacity = 0;
             self.progressBar.width = '0%';
-          }, 1000);
-          
+          }, 1000);       
         }
       },
 
       methods: {
-        isLargeDevice: function() {
-          if (window.matchMedia("(min-width: 769px)").matches) { 
-            return true;
-          } else {
-            return false;
-          }
-        },
-
         scroll: function(id) {
           document.getElementById(id).scrollIntoView({ 
             behavior: 'smooth',
             block: "start" 
           });
         },
+
+        closeModal: function() {
+          this.showModal = false;
+          this.activeProject = {};
+        },
+
+        handleWindowResize: function(e) { 
+          this.windowWidth = e.currentTarget.innerWidth; 
+        },
+
       },
 
       created: function() {
-        if (this.isLargeDevice()) {
-          this.activeProject = this.projects[0];
-        }
-      }
+        if (!this.isMobile) this.activeProject = this.projects[0];
+      },
+
+      mounted: function() {
+        window.addEventListener('resize', this.handleWindowResize);
+      },
+
+      beforeDestroy: function() {
+        window.removeEventListener('resize', this.handleWindowResize);
+      },
     });
   </script>
+ 
 </body>
 </html>
