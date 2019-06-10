@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Deepfarer -Web Design and Front-End Development</title>
+
+  <meta name="description" content="Front-end web developer that helps companies build effective user interfaces. I love diving into new challenges and into the blue ocean.">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134958181-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134958181-1');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Carter+One|Muli:300,300i,400,600,700,800" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- Tachyons: A CSS Framework http://tachyons.io/docs/table-of-styles/-->
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+
+<body>
+  <div id="app">
+    <header class="bg-blue white">
+      <div class="container">
+        <div class="flex justify-between pt3 pb2 bb">
+          <div class="flex items-center">
+            <div class="w5 pr4">
+              <img src="assets/logo_deepfarer.png" class="db w-100" alt="logo">
+            </div>
+          </div>
+
+          <nav class="flex items-center">
+            <ul class="h-100 flex-ns dn justify-end items-center list mv0">
+              <li class="ml3 pl2 ttu tracked f6">
+                <a href="#work" class="white" @click.prevent="scroll('work')">Work</a>
+              </li>
+
+              <li class="ml3 pl2 ttu tracked f6">
+                <a href="#about" class="white" @click.prevent="scroll('about')">About</a>
+              </li>
+
+              <li class="ml3 pl2 ttu tracked f6">
+                <a href="/resume" class="white" target="_blank">Resume</a>
+              </li>
+
+              <li class="ml3 pl2 ttu tracked f6">
+                <a href="mailto:paola.rguti@gmail.com" class="white" target="_blank">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <article class="bg-gradient">
+        <div class="container pv5">
+          <div class="paragraph pa4 bg-white center mb4">
+            <h1 class="f2">Creating a Buyers Only Page on Shopify</h1>
+
+            <p>1. <a href="https://help.shopify.com/en/themes/customization/store/create-alternate-templates" target="_blank">Create a new page template</a> (just make a copy of an existing template for ease).</p>
+
+            <p>2. Edit the page template using the following example:</p>
+
+            <script src="https://gist.github.com/paolarguti/21cfa63d6a80c83e04d62383e350b5d2.js"></script>
+
+            <p>3. Save your changes. Now any page that uses the template you just created will be accessible for buyers only!</p>
+          </div>
+
+          <div class="paragraph center tc">
+            <h4>Need help customizing your Shopify theme?</h4>
+            <a href="mailto:paola.rguti@gmail.com" class="btn">Get in touch!</a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="bg-gray">
+      <div class="container tc white">
+        <div class="pt5 pb4">
+          <h2 class="title lh-title tc mb3 pb2">Get in touch!</h2>
+
+          <p class="f4 mb3">paola.rguti@gmail.com</p>
+
+          <div class="flex justify-center f4">
+            <a class="db ba br50 w2 h2 flex justify-center items-center mh1 white" href="https://linkedin.com/in/paolarguti/">
+              <i class="fab fa-linkedin-in f6"></i>
+            </a>
+
+            <a class="db ba br50 w2 h2 flex justify-center items-center mh1 white" href="mailto:paola.rguti@gmail.com" target="_blank">
+              <i class="fas fa-envelope f6"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="bt b--white pv3">
+          <p class="f7 mb0">Handcrafted by me <i class="far fa-copyright"></i> 2019</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
